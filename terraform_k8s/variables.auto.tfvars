@@ -1,0 +1,8 @@
+gcp_sa_terraform_credentials = "mindbehind-407520-3d61d8bd05ba.json"
+gcp_project_id = "mindbehind-407520"
+gcp_region = "us-west1"
+gke_cluster_name = "mindbehind-gufran-cluster"
+gke_network = "default"
+gke_subnetwork = "default"
+gke_nodepool_name = "mindbehind-gufran-nodepool"
+gke_service_account_name = "terraform-sa@mindbehind-407520.iam.gserviceaccount.com"
