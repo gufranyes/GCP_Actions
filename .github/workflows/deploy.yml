@@ -37,10 +37,10 @@ jobs:
         docker push gcr.io/mindbehind-407520/nodeappimage:$IMAGE_TAG
       working-directory: ./nodeapp
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
+      uses: hashicorp/setup-terraform@v3
     - name: Terraform init
       run: terraform init -backend-config="bucket=k8s-terraform-cicd" -backend-config="prefix=test"
-      working-directory: ./terraform
+      working-directory: ./terraform_cicd
     - name: Terraform Plan
       run: |
         terraform plan \
