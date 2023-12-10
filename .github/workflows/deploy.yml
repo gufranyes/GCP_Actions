@@ -28,13 +28,11 @@ jobs:
         workload_identity_provider: 'projects/1054698923027/locations/global/workloadIdentityPools/github/providers/my-repo'
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
-    - name: docker auth
-      run: |
-        gcloud auth activate-service-account terraform-sa@mindbehind-407520.iam.gserviceaccount.com --key-file="./terraform_k8s/mindbehind-407520-3d61d8bd05ba.json"
-        gcloud auth configure-docker
-    - run: gcloud auth list
     - name: Build and push docker image
       run: |
+        gcloud auth activate-service-account terraform-sa@mindbehind-407520.iam.gserviceaccount.com --key-file="../terraform_k8s/mindbehind-407520-3d61d8bd05ba.json"
+        gcloud auth configure-docker
+        gcloud auth list
         docker build -t gcr.io/mindbehind-407520/nodeappimage:$IMAGE_TAG .
         docker push gcr.io/mindbehind-407520/nodeappimage:$IMAGE_TAG
       working-directory: ./nodeapp
