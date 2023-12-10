@@ -32,8 +32,8 @@ jobs:
       run: |
         gcloud auth activate-service-account terraform-sa@mindbehind-407520.iam.gserviceaccount.com --key-file="../terraform_k8s/mindbehind-407520-3d61d8bd05ba.json"
         gcloud auth configure-docker
-        gcloud auth application-default login
-        gcloud auth application-default set-quota-project mindbehind-407520
+        gcloud auth application-default login --quiet
+        gcloud auth application-default set-quota-project mindbehind-407520 --quiet
         gcloud auth list
         docker build -t gcr.io/mindbehind-407520/nodeappimage:$IMAGE_TAG .
         docker push gcr.io/mindbehind-407520/nodeappimage:$IMAGE_TAG
