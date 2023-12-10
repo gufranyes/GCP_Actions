@@ -39,7 +39,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
     - name: Terraform init
-      run: terraform init -backend-config="bucket=k8s-terraform-cicd"
+      run: terraform init
       working-directory: ./terraform_cicd
     - name: Terraform Plan
       run: |
