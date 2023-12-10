@@ -1,6 +1,6 @@
 terraform {
-  required_version = ">= 0.12"
   backend "gcs" {
+    bucket  = "k8s-terraform-cicd"
   }
 }
 provider "google" {
