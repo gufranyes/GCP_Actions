@@ -4,6 +4,7 @@ terraform {
   }
 }
 provider "google" {
+  credentials = file("../terraform_k8s/mindbehind-407520-3d61d8bd05ba.json")
   project = var.project_id
   region  = var.region
 }
